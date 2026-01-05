@@ -79,5 +79,18 @@ public class MainMenuController {
         }
     }
 
+    @FXML
+    public void handleOpenUsers() {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/view/users.fxml"));
+            Stage stage = new Stage();
+            stage.setTitle("Pregled Korisnika");
+            stage.setScene(new Scene(root, 350, 450));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 
 }
