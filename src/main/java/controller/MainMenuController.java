@@ -66,5 +66,18 @@ public class MainMenuController {
         }
     }
 
+    @FXML
+    public void handleOpenSettings() {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/view/settings.fxml"));
+            Stage stage = new Stage();
+            stage.setTitle("Postavke");
+            stage.setScene(new Scene(root, 300, 400));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 
 }

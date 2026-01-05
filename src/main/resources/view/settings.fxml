@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox spacing="15" alignment="CENTER" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SettingsController">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <Label text="Postavke Profila" style="-fx-font-size: 20px; -fx-font-weight: bold;" />
+
+    <PasswordField fx:id="newPasswordField" promptText="Nova lozinka" />
+    <Button text="Promijeni lozinku" onAction="#handleChangePassword" style="-fx-background-color: #607D8B; -fx-text-fill: white;" />
+
+    <Separator />
+
+    <Button text="Obriši nalog" onAction="#handleDeleteAccount" style="-fx-background-color: #f44336; -fx-text-fill: white;" />
+    <Button text="Nazad" onAction="#handleBack" />
+</VBox>

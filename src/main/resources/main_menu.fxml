@@ -17,7 +17,7 @@
         <Button prefHeight="100" prefWidth="150" text="Calendar" GridPane.columnIndex="2" GridPane.rowIndex="0" />
         <Button text="Notes" onAction="#handleOpenNotes" prefWidth="150" prefHeight="100" GridPane.columnIndex="0" GridPane.rowIndex="1" />
         <Button onAction="#handleOpenFinance" prefHeight="100" prefWidth="150" text="Finance" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-        <Button prefHeight="100" prefWidth="150" text="Settings" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+        <Button text="Settings" onAction="#handleOpenSettings" prefWidth="150" prefHeight="100" GridPane.columnIndex="2" GridPane.rowIndex="1" />
       <columnConstraints>
          <ColumnConstraints />
          <ColumnConstraints />
