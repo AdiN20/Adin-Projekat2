@@ -7,6 +7,11 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.Alert;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import java.net.URL;
 
 public class LoginController {
 
@@ -14,46 +19,69 @@ public class LoginController {
     @FXML private PasswordField passwordField;
 
     @FXML
-    public void handleRegister() {
+    public void handleLogin() {
         String user = usernameField.getText();
         String pass = passwordField.getText();
 
-
-        if (user.isEmpty() || pass.isEmpty()) {
-            prikaziAlert("Greška", "Sva polja moraju biti popunjena!");
-            return;
-        }
-
         try {
-
             MongoCollection<Document> users = DatabaseConnection.getDatabase().getCollection("users");
+            Document found = users.find(new Document("username", user).append("password", pass)).first();
 
+            if (found != null) {
 
-            Document postojeciKorisnik = users.find(new Document("username", user)).first();
-            if (postojeciKorisnik != null) {
-                prikaziAlert("Greška", "Korisničko ime je već zauzeto!");
-                return;
+                URL resource = getClass().getResource("/view/main_menu.fxml");
+
+                if (resource == null) {
+                    resource = getClass().getResource("/main_menu.fxml");
+                }
+
+                if (resource == null) {
+                    resource = getClass().getClassLoader().getResource("view/main_menu.fxml");
+                }
+
+                if (resource == null) {
+                    System.out.println("KRITIČNA GREŠKA: main_menu.fxml nije pronađen!");
+                    prikaziAlert("Sistemska greška", "Fajl main_menu.fxml nije pronađen u resursima.");
+                    return;
+                }
+
+                Parent root = FXMLLoader.load(resource);
+                Stage stage = (Stage) usernameField.getScene().getWindow();
+                stage.setScene(new Scene(root, 600, 500));
+                stage.setTitle("Glavni Meni");
+                stage.centerOnScreen();
+                stage.show();
+            } else {
+                prikaziAlert("Greška", "Pogrešno korisničko ime ili lozinka!");
             }
-
-
-            Document newUser = new Document("username", user).append("password", pass);
-            users.insertOne(newUser);
-
-            prikaziAlert("Uspjeh", "Uspješno ste se registrovali!");
-
-
-            usernameField.clear();
-            passwordField.clear();
-
         } catch (Exception e) {
-            prikaziAlert("Baza podataka", "Greška pri povezivanju: " + e.getMessage());
+            e.printStackTrace();
+            prikaziAlert("Greška", "Došlo je do greške pri učitavanju prozora: " + e.getMessage());
         }
     }
 
     @FXML
-    public void handleLogin() {
+    public void handleRegister() {
+        String user = usernameField.getText();
+        String pass = passwordField.getText();
 
-        System.out.println("Kliknut login.");
+        if (user.isEmpty() || pass.isEmpty()) {
+            prikaziAlert("Greška", "Popunite sva polja!");
+            return;
+        }
+
+        try {
+            MongoCollection<Document> users = DatabaseConnection.getDatabase().getCollection("users");
+            if (users.find(new Document("username", user)).first() != null) {
+                prikaziAlert("Greška", "Korisnik već postoji!");
+                return;
+            }
+
+            users.insertOne(new Document("username", user).append("password", pass));
+            prikaziAlert("Uspjeh", "Registracija uspješna!");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private void prikaziAlert(String naslov, String sadrzaj) {

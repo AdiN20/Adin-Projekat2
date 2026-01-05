@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainMenuController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+
+    <Label text="Glavni Meni" style="-fx-font-size: 24px; -fx-font-weight: bold;" />
+
+    <GridPane hgap="10" vgap="10" alignment="CENTER">
+        <Button text="Users" prefWidth="150" prefHeight="100" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <Button text="To-Do List" prefWidth="150" prefHeight="100" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+        <Button text="Calendar" prefWidth="150" prefHeight="100" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+        <Button text="Notes" prefWidth="150" prefHeight="100" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+        <Button text="Finance" prefWidth="150" prefHeight="100" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+        <Button text="Settings" prefWidth="150" prefHeight="100" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+    </GridPane>
+
+    <Button text="Odjavi se" onAction="#handleLogout" style="-fx-background-color: #ff4444; -fx-text-fill: white;" />
+</VBox>
