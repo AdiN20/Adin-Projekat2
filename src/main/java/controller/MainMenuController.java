@@ -52,4 +52,19 @@ public class MainMenuController {
         }
 
     }
+
+    @FXML
+    public void handleOpenNotes() {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/view/notes.fxml"));
+            Stage stage = new Stage();
+            stage.setTitle("Bilješke");
+            stage.setScene(new Scene(root, 450, 500));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
 }

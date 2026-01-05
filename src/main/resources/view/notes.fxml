@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox spacing="15" alignment="CENTER" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.NotesController">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <Label text="Moje Bilješke" style="-fx-font-size: 22px; -fx-font-weight: bold;" />
+
+    <TextArea fx:id="noteTextArea" promptText="Napiši nešto pametno..." prefHeight="150" wrapText="true" />
+
+    <Button text="Spremi Bilješku" onAction="#handleSaveNote" style="-fx-background-color: #FF9800; -fx-text-fill: white;" />
+
+    <ListView fx:id="notesListView" prefHeight="200" />
+
+    <Button text="Nazad" onAction="#handleBack" />
+</VBox>
