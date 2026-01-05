@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox spacing="15" alignment="CENTER" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FinanceController">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <Label text="Upravljanje Finansijama" style="-fx-font-size: 20px; -fx-font-weight: bold;" />
+
+    <GridPane hgap="10" vgap="10" alignment="CENTER">
+        <Label text="Opis troška:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+        <TextField fx:id="descriptionField" promptText="npr. Hrana" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+        <Label text="Iznos (KM):" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+        <TextField fx:id="amountField" promptText="npr. 50.00" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+    </GridPane>
+
+    <Button text="Dodaj Trošak" onAction="#handleAddExpense" style="-fx-background-color: #2196F3; -fx-text-fill: white;" />
+
+    <ListView fx:id="expenseListView" prefHeight="200" />
+
+    <Label fx:id="totalLabel" text="Ukupno: 0.00 KM" style="-fx-font-weight: bold;" />
+
+    <Button text="Nazad" onAction="#handleBack" />
+</VBox>

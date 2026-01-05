@@ -39,5 +39,17 @@ public class MainMenuController {
         }
     }
 
+    @FXML
+    public void handleOpenFinance() {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/view/finance.fxml"));
+            Stage stage = new Stage();
+            stage.setTitle("Finansije");
+            stage.setScene(new Scene(root, 400, 500));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
+    }
 }
