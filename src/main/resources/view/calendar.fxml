@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox spacing="15" alignment="CENTER" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CalendarController">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <Label text="Planer Događaja" style="-fx-font-size: 20px; -fx-font-weight: bold;" />
+
+    <HBox spacing="10" alignment="CENTER">
+        <TextField fx:id="eventField" promptText="Naziv događaja" />
+        <DatePicker fx:id="datePicker" promptText="Odaberi datum" />
+    </HBox>
+
+    <Button text="Dodaj u Kalendar" onAction="#handleAddEvent" style="-fx-background-color: #9C27B0; -fx-text-fill: white;" />
+
+    <ListView fx:id="calendarListView" prefHeight="200" />
+
+    <Button text="Nazad" onAction="#handleBack" />
+</VBox>

@@ -92,5 +92,18 @@ public class MainMenuController {
         }
     }
 
+    @FXML
+    public void handleOpenCalendar() {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/view/calendar.fxml"));
+            Stage stage = new Stage();
+            stage.setTitle("Kalendar");
+            stage.setScene(new Scene(root, 450, 450));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 
 }
