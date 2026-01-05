@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER" spacing="15" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TodoController">
+    <padding>
+        <Insets bottom="20" left="20" right="20" top="20" />
+    </padding>
+
+    <Label style="-fx-font-size: 22px; -fx-font-weight: bold;" text="Moje Obaveze" />
+
+    <HBox spacing="10">
+        <TextField fx:id="taskField" promptText="Šta treba uraditi?" HBox.hgrow="ALWAYS" />
+        <Button onAction="#handleAddTask" style="-fx-background-color: #4CAF50; -fx-text-fill: white;" text="Dodaj" />
+    </HBox>
+
+    <ListView fx:id="taskListView" prefHeight="250" />
+
+    <Button onAction="#handleBack" text="Zatvori" />
+</VBox>

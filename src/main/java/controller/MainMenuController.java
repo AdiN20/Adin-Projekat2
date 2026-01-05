@@ -26,5 +26,18 @@ public class MainMenuController {
         }
     }
 
+    @FXML
+    public void handleOpenTodo() {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/view/todo.fxml"));
+            Stage stage = new Stage();
+            stage.setTitle("To-Do Lista");
+            stage.setScene(new Scene(root, 400, 500));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 
 }
