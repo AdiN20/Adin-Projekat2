@@ -1,28 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.geometry.Insets?>
 
-<VBox spacing="15" alignment="CENTER" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FinanceController">
+<VBox alignment="CENTER" spacing="15" style="-fx-background-color: #1a1a1a;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FinanceController">
     <padding>
-        <Insets top="20" right="20" bottom="20" left="20"/>
+        <Insets bottom="20" left="20" right="20" top="20" />
     </padding>
 
-    <Label text="Upravljanje Finansijama" style="-fx-font-size: 20px; -fx-font-weight: bold;" />
+    <Label style="-fx-font-size: 22px; -fx-font-weight: bold;" text="Upravljanje Finansijama" textFill="WHITE" />
+
+    <HBox alignment="CENTER" spacing="30">
+        <Label fx:id="statsLabel" style="-fx-text-fill: #00aaff; -fx-font-weight: bold;" text="Broj transakcija: 0" />
+        <Label fx:id="totalLabel" style="-fx-text-fill: #4CAF50; -fx-font-weight: bold; -fx-font-size: 16px;" text="Saldo: 0.00 KM" />
+    </HBox>
+
+    <Separator opacity="0.2" />
 
     <GridPane hgap="10" vgap="10" alignment="CENTER">
-        <Label text="Opis troška:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
-        <TextField fx:id="descriptionField" promptText="npr. Hrana" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+        <Label text="Opis:" textFill="WHITE" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <TextField fx:id="descriptionField" promptText="npr. Plata, Namirnice..." GridPane.columnIndex="1" GridPane.rowIndex="0" />
 
-        <Label text="Iznos (KM):" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
-        <TextField fx:id="amountField" promptText="npr. 50.00" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+        <Label text="Iznos:" textFill="WHITE" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+        <TextField fx:id="amountField" promptText="0.00" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+        <Label text="Tip:" textFill="WHITE" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+        <ChoiceBox fx:id="typeBox" prefWidth="150" GridPane.columnIndex="1" GridPane.rowIndex="2" />
     </GridPane>
 
-    <Button text="Dodaj Trošak" onAction="#handleAddExpense" style="-fx-background-color: #2196F3; -fx-text-fill: white;" />
+    <Button maxWidth="Infinity" onAction="#handleAddExpense" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold;" text="Dodaj Transakciju" />
 
-    <ListView fx:id="expenseListView" prefHeight="200" />
+    <Separator opacity="0.2" />
 
-    <Label fx:id="totalLabel" text="Ukupno: 0.00 KM" style="-fx-font-weight: bold;" />
+    <Label text="Historija transakcija:" textFill="WHITE" />
+    <ListView fx:id="expenseListView" prefHeight="200" style="-fx-control-inner-background: #333333; -fx-text-fill: white;" />
 
-    <Button text="Nazad" onAction="#handleBack" />
+    <HBox alignment="CENTER" spacing="15">
+        <Button onAction="#handleExportPDF" prefWidth="120" style="-fx-background-color: #e67e22; -fx-text-fill: white; -fx-font-weight: bold;" text="Export PDF" />
+        <Button onAction="#handleBack" prefWidth="120" style="-fx-background-color: #555555; -fx-text-fill: white;" text="Nazad" />
+    </HBox>
 </VBox>

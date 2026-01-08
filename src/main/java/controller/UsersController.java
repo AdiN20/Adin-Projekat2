@@ -1,18 +1,24 @@
 package controller;
 
-import database.DatabaseConnection;
 import com.mongodb.client.MongoCollection;
-import org.bson.Document;
+import database.DatabaseConnection;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
+import org.bson.Document;
 
 public class UsersController {
     @FXML private ListView<String> usersListView;
 
+
+
     private MongoCollection<Document> usersCollection;
+
 
     @FXML
     public void initialize() {
+
+
+
         usersCollection = DatabaseConnection.getDatabase().getCollection("users");
         ucitajKorisnike();
     }

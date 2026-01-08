@@ -9,11 +9,24 @@ import javafx.stage.Stage;
 public class MainApp extends Application {
 
     @Override
-    public void start(Stage primaryStage) throws Exception {
+    public void start(Stage stage) throws Exception {
+
         Parent root = FXMLLoader.load(getClass().getResource("/view/login.fxml"));
-        primaryStage.setTitle("Life Management System - Login");
-        primaryStage.setScene(new Scene(root, 400, 400));
-        primaryStage.show();
+
+
+        Scene scene = new Scene(root, 400, 400);
+
+
+        try {
+            scene.getStylesheets().add(getClass().getResource("/view/style.css").toExternalForm());
+        } catch (Exception e) {
+            System.out.println("CSS fajl nije pronađen, provjeri putanju!");
+        }
+
+
+        stage.setTitle("Life Management System - Login");
+        stage.setScene(scene);
+        stage.show();
     }
 
     public static void main(String[] args) {

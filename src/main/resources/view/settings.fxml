@@ -1,20 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.geometry.Insets?>
 
-<VBox spacing="15" alignment="CENTER" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SettingsController">
+<VBox fx:id="mainContainer" alignment="CENTER" spacing="15" style="-fx-background-color: #1a1a1a;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SettingsController">
     <padding>
-        <Insets top="20" right="20" bottom="20" left="20"/>
+        <Insets bottom="20" left="20" right="20" top="20" />
     </padding>
 
-    <Label text="Postavke Profila" style="-fx-font-size: 20px; -fx-font-weight: bold;" />
+    <Label style="-fx-font-size: 20px; -fx-text-fill: white; -fx-font-weight: bold;" text="Postavke Sistema" />
 
-    <PasswordField fx:id="newPasswordField" promptText="Nova lozinka" />
-    <Button text="Promijeni lozinku" onAction="#handleChangePassword" style="-fx-background-color: #607D8B; -fx-text-fill: white;" />
+    <Separator opacity="0.3" />
 
-    <Separator />
+    <Label text="Izaberi Temu Aplikacije:" textFill="WHITE" />
+    <ChoiceBox fx:id="themeChoiceBox" prefWidth="200" />
 
-    <Button text="Obriši nalog" onAction="#handleDeleteAccount" style="-fx-background-color: #f44336; -fx-text-fill: white;" />
-    <Button text="Nazad" onAction="#handleBack" />
+    <Separator opacity="0.3" />
+
+    <Label text="Promjena Lozinke:" textFill="WHITE" />
+    <PasswordField fx:id="passwordField" promptText="Unesite novu lozinku" maxWidth="200" />
+
+    <Button onAction="#handleChangePassword" style="-fx-background-color: #4CAF50; -fx-text-fill: white;" text="Spasi Lozinku" />
+
+    <Separator opacity="0.3" />
+
+    <Button onAction="#handleBack" prefWidth="100" text="Nazad" style="-fx-background-color: #555555; -fx-text-fill: white;" />
 </VBox>

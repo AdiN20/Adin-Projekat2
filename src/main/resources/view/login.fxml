@@ -1,21 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
+<VBox alignment="CENTER" spacing="20.0" prefHeight="400.0" prefWidth="400.0"
+      style="-fx-background-color: #1a1a1a;"
+      xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="controller.LoginController">
+
     <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+        <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
     </padding>
 
-    <Label text="Life Management System" style="-fx-font-size: 20px; -fx-font-weight: bold;" />
+    <Label text="Life Management System" textFill="WHITE">
+        <font>
+            <Font name="System Bold" size="24.0" />
+        </font>
+    </Label>
 
-    <TextField fx:id="usernameField" promptText="Korisničko ime" />
-    <PasswordField fx:id="passwordField" promptText="Lozinka" />
+    <VBox spacing="10.0" alignment="CENTER">
+        <Label text="Korisničko ime:" textFill="WHITE" />
+        <TextField fx:id="usernameField" promptText="Unesite korisničko ime"
+                   maxWidth="250.0"
+                   style="-fx-background-color: #333333; -fx-text-fill: white; -fx-prompt-text-fill: #888888;" />
+    </VBox>
 
-    <HBox spacing="10" alignment="CENTER">
-        <Button text="Login" onAction="#handleLogin" />
-        <Button text="Register" onAction="#handleRegister" />
-    </HBox>
+    <VBox spacing="10.0" alignment="CENTER">
+        <Label text="Lozinka:" textFill="WHITE" />
+        <PasswordField fx:id="passwordField" promptText="Unesite lozinku"
+                       maxWidth="250.0"
+                       style="-fx-background-color: #333333; -fx-text-fill: white; -fx-prompt-text-fill: #888888;" />
+    </VBox>
+
+    <VBox spacing="10.0" alignment="CENTER">
+        <Button text="PRIJAVI SE" onAction="#handleLogin" prefWidth="250.0"
+                style="-fx-background-color: #0078d7; -fx-text-fill: white; -fx-font-weight: bold; -fx-cursor: hand;" />
+
+        <Button text="Nemaš nalog? Registruj se" onAction="#handleRegister" prefWidth="250.0"
+                style="-fx-background-color: transparent; -fx-text-fill: #00aaff; -fx-cursor: hand;" />
+    </VBox>
+
 </VBox>

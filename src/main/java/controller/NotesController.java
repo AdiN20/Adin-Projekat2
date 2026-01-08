@@ -15,10 +15,15 @@ public class NotesController {
     @FXML private TextArea noteTextArea;
     @FXML private ListView<String> notesListView;
 
+
+
     private MongoCollection<Document> notesCollection;
 
     @FXML
     public void initialize() {
+
+
+
         notesCollection = DatabaseConnection.getDatabase().getCollection("notes");
         ucitajBiljeske();
     }
